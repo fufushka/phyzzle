@@ -64,3 +64,5 @@ function scrollToContact() {
     block: "start",
   });
 }
+
+function ex() { }
