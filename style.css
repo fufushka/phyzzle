@@ -1,11 +1,18 @@
+@font-face {
+  font-family: myFont;
+  /* set name */
+  src: url(./Fonts/Bounded-Black.ttf);
+  /* url of the font */
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 body {
-  font-family: "Montserrat", "Segoe UI", sans-serif;
+  font-family: "myFont", "Segoe UI", sans-serif;
   color: var(--ph-text-main);
   overflow-x: hidden;
   background: #0a0e27;
@@ -15,33 +22,73 @@ body {
   --ph-text-main: #ffffff;
   --ph-gradient: linear-gradient(135deg, #00d4ff, #0066ff, #b300ff);
 }
-.stars {
+/* Контейнер для фону */
+.parallax-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1;
+  overflow: hidden;
   pointer-events: none;
-  z-index: 0;
 }
+
+
+.star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  will-change: transform;
+}
+
 
 .star {
   position: absolute;
-  width: 2px;
-  height: 2px;
   background: white;
   border-radius: 50%;
-  animation: twinkle 3s infinite;
+  opacity: 0.8;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
 }
 
+
+.layer-1 .star {
+  width: 1px;
+  height: 1px;
+  opacity: 0.5;
+}
+
+
+.layer-2 .star {
+  width: 2px;
+  height: 2px;
+  opacity: 0.8;
+}
+
+
+.layer-3 .star {
+  width: 3px;
+  height: 3px;
+  opacity: 1;
+  box-shadow: 0 0 4px white;
+}
+
+
+
 @keyframes twinkle {
+
   0%,
   100% {
     opacity: 0.3;
+    transform: scale(0.8);
   }
 
   50% {
     opacity: 1;
+    transform: scale(1.2);
   }
 }
 #scroll-rocket {
@@ -62,21 +109,43 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10, 14, 39, 0.8);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  backdrop-filter: blur(2px);
 }
+
 
 .logo {
-  font-size: 2rem;
-  font-weight: 900;
+  display: block;
+
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 3px;
+  
   background: var(--ph-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+ 
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+.logo img {
+  width: 100%;
+  height: 100%;
+ 
+  object-fit: cover;
+ 
+  border-radius: 50%;
+  display: block;
+ 
+  background-color: var(--ph-bg-dark);
+}
+
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(179, 0, 255, 0.7);
+}
 nav {
   display: flex;
   gap: 2rem;
@@ -467,7 +536,7 @@ nav a:hover::after {
   margin-bottom: 2rem;
   text-align: center;
   font-size: 1rem;
-  height: 109px;
+  min-height: 164px;
 }
 
 .pricing-options {
@@ -538,20 +607,48 @@ nav a:hover::after {
   position: relative;
   padding: 5rem 2rem;
   z-index: 10;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 100, 255, 0.15) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center,
+      rgba(0, 100, 255, 0.15) 0%,
+      transparent 70%);
 }
 
 .contact-wrapper {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: row;
+ 
+  gap: 60px;
   align-items: center;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(20, 20, 50, 0.6);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  padding: 3rem;
+  backdrop-filter: blur(15px);
+  flex-basis: calc((100% - 40px) / 2);
+}
+
+.contact-form {
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-info {
+  flex-basis: calc((100% - 40px) / 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contact-heading {
@@ -576,7 +673,6 @@ nav a:hover::after {
   font-size: 1.2rem;
   color: #c5d4ff;
 }
-
 .check-icon {
   width: 30px;
   height: 30px;
@@ -591,16 +687,34 @@ nav a:hover::after {
 }
 
 .arrow-decoration {
+  height: 100px;
   position: relative;
-  margin-top: 2rem;
+display: flex;
+flex-direction: row;
+align-items: flex-end;
 }
 
+
+
+.my-arrow {
+position: absolute;
+top: -60px;
+left: 0;
+  width: 150px;
+  height: auto;
+  display: block;
+    margin-top: 0;
+}
+
+
 .arrow-text {
-  position: absolute;
-  right: 0;
-  top: -10px;
+ position: absolute;
+ top: 5px;
+ right: 0;
+  
+ 
   color: #00d4ff;
-  font-size: 0.9rem;
+
   font-weight: 600;
 }
 
@@ -661,9 +775,10 @@ footer {
   position: relative;
   padding: 2rem;
   text-align: center;
-  background: rgba(10, 14, 39, 0.9);
+  background: transparent;
   color: #c5d4ff;
   z-index: 10;
+  backdrop-filter: blur(2px);
 }
 
 @media (max-width: 768px) {
@@ -686,7 +801,7 @@ footer {
 }
 
 .phyzzle-faq-section {
-  background-color: var(--ph-bg-dark);
+  background-color: transparent;
   color: var(--ph-text-main);
   padding: 60px 20px;
   font-family: "Montserrat", sans-serif; /* Або ваш шрифт */

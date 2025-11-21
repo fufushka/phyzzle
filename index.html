@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phyzzle - Підготовка до НМТ з фізики</title>
     <link rel="stylesheet" href="./style.css" />
+      <link rel="icon" type="image/x-icon" href="./Images/favicon-16x16.png">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
 
   <body>
-    <div class="stars" id="stars"></div>
+    <div class="parallax-container">
+      <div class="star-layer layer-1" data-speed="0.05"></div>
+      <div class="star-layer layer-2" data-speed="0.2"></div>
+      <div class="star-layer layer-3" data-speed="0.5"></div>
+    </div>
     <div id="scroll-rocket">🚀</div>
 
     <header>
-      <div class="logo">PHYZZLE</div>
+      <a href="#" class="logo">
+        <img src="/Images/logo_trnsp.png" alt="PHYZZLE Logo" />
+      </a>
       <nav>
         <a href="#about">Про курс</a>
         <a href="#pricing">Тарифи</a>
@@ -135,7 +142,7 @@
       <div class="teachers-grid">
         <div class="teacher-card">
           <div class="teacher-avatar">
-            <img src="/New folder/photo_2025-10-03_13-04-30.jpg" alt="" />
+            <img src="/Images/photo_2025-10-03_13-04-30.jpg" alt="" />
           </div>
           <h3 class="teacher-name">Пусі Петрович</h3>
           <p class="teacher-role">Головний викладач</p>
@@ -247,15 +254,13 @@
             </div>
           </div>
           <div class="arrow-decoration">
-            <svg width="200" height="100" viewBox="0 0 200 100">
-              <path
-                d="M 10 50 Q 100 10, 180 50"
-                stroke="#00d4ff"
-                stroke-width="2"
-                fill="none"
-              />
-              <polygon points="180,50 170,45 170,55" fill="#00d4ff" />
+            <svg class="my-arrow" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#00d4ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+                stroke-miterlimit="10">
+                <path d="M44 130h164M194.463 152.188 212.325 130l-17.862-22.188" />
+              </g>
             </svg>
+          
             <span class="arrow-text">зв'яжемось найближчим часом</span>
           </div>
         </div>
