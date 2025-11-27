@@ -10,13 +10,19 @@
   box-sizing: border-box;
 }
 
-
 body {
   font-family: "myFont", "Segoe UI", sans-serif;
   color: var(--ph-text-main);
   overflow-x: hidden;
   background: #0a0e27;
 }
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
 :root {
   --ph-bg-dark: #0a0e27;
   --ph-text-main: #ffffff;
@@ -34,7 +40,6 @@ body {
   pointer-events: none;
 }
 
-
 .star-layer {
   position: absolute;
   top: 0;
@@ -43,7 +48,6 @@ body {
   height: 120%;
   will-change: transform;
 }
-
 
 .star {
   position: absolute;
@@ -54,20 +58,17 @@ body {
   animation-delay: var(--delay);
 }
 
-
 .layer-1 .star {
   width: 1px;
   height: 1px;
   opacity: 0.5;
 }
 
-
 .layer-2 .star {
   width: 2px;
   height: 2px;
   opacity: 0.8;
 }
-
 
 .layer-3 .star {
   width: 3px;
@@ -76,10 +77,7 @@ body {
   box-shadow: 0 0 4px white;
 }
 
-
-
 @keyframes twinkle {
-
   0%,
   100% {
     opacity: 0.3;
@@ -113,7 +111,6 @@ header {
   backdrop-filter: blur(2px);
 }
 
-
 .logo {
   display: block;
 
@@ -121,26 +118,24 @@ header {
   height: 80px;
   border-radius: 50%;
   padding: 3px;
-  
+
   background: var(--ph-gradient);
- 
+
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .logo img {
   width: 100%;
   height: 100%;
- 
+
   object-fit: cover;
- 
+
   border-radius: 50%;
   display: block;
- 
+
   background-color: var(--ph-bg-dark);
 }
-
 
 .logo:hover {
   transform: scale(1.05);
@@ -179,13 +174,12 @@ nav a:hover::after {
 }
 
 .hero {
-  position: relative;
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+
   background: radial-gradient(
     ellipse at center,
     rgba(0, 100, 255, 0.2) 0%,
@@ -241,7 +235,7 @@ nav a:hover::after {
   border-radius: 50px;
   box-shadow: 0 10px 30px rgba(0, 100, 255, 0.4);
   transition: all 0.3s;
-  border: 2px solid transparent;
+
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -259,7 +253,6 @@ nav a:hover::after {
 }
 
 .features-container {
-  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -454,7 +447,7 @@ nav a:hover::after {
 
 .pricing {
   position: relative;
-  padding: 5rem 2rem;
+
   z-index: 10;
   background: radial-gradient(
     ellipse at center,
@@ -464,7 +457,6 @@ nav a:hover::after {
 }
 
 .pricing-container {
-  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -607,9 +599,11 @@ nav a:hover::after {
   position: relative;
   padding: 5rem 2rem;
   z-index: 10;
-  background: radial-gradient(ellipse at center,
-      rgba(0, 100, 255, 0.15) 0%,
-      transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 100, 255, 0.15) 0%,
+    transparent 70%
+  );
 }
 
 .contact-wrapper {
@@ -618,7 +612,7 @@ nav a:hover::after {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
- 
+
   gap: 60px;
   align-items: center;
 }
@@ -636,7 +630,6 @@ nav a:hover::after {
 }
 
 .contact-form {
-
   display: flex;
   flex-direction: column;
 
@@ -689,30 +682,26 @@ nav a:hover::after {
 .arrow-decoration {
   height: 100px;
   position: relative;
-display: flex;
-flex-direction: row;
-align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
-
-
 .my-arrow {
-position: absolute;
-top: -60px;
-left: 0;
+  position: absolute;
+  top: -60px;
+  left: 0;
   width: 150px;
   height: auto;
   display: block;
-    margin-top: 0;
+  margin-top: 0;
 }
 
-
 .arrow-text {
- position: absolute;
- top: 5px;
- right: 0;
-  
- 
+  position: absolute;
+  top: 5px;
+  right: 0;
+
   color: #00d4ff;
 
   font-weight: 600;
